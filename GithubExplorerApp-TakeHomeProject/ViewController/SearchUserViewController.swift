@@ -14,6 +14,7 @@ class SearchUserViewController: UIViewController {
     @IBOutlet private(set) weak var submitButton: UIButton!
     @IBOutlet private(set) weak var introImageView: UIImageView!
     
+    var networkManager = NetworkManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.delegate = self
@@ -24,21 +25,38 @@ class SearchUserViewController: UIViewController {
 //MARK: - Actions
 extension SearchUserViewController {
     @IBAction private func didTapCancel(_ sender : UIButton) {
+        loginTextField.text = ""
+        loginTextField.resignFirstResponder()
         print("Cancel Tap")
     }
     
     @IBAction private func didTapSubmit(_ sender : UIButton) {
-        print("Submit Tap")
+        guard let loginText = loginTextField.text, !loginText.isEmpty else {
+            #warning("present alert to insert string")
+            return
+        }
+        print("Push to NextVC")
+        networkManager.requestLogin(loginText)
     }
 }
 
 //MARK: - UITextFieldDelegate
+// - Add method to prevent empty words in textfield, show popup
 extension SearchUserViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == loginTextField {
-            // Navigate to results vc
-            print("Push to NextVC")
+            didTapSubmit(submitButton)
+            return true
         }
-        return true
+        return false
     }
 }
+
+
+#warning("""
+TODO's
+1. Setup data model ✅
+2. Setup and basic configure network request ✅
+3. Verify no empty spaces in textfield in order to proceed to search, check in submit button or textfield ✅
+4. Add alert show if emtpy login (nice to have)
+""")
