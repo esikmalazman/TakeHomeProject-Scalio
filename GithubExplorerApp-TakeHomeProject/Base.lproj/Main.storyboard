@@ -16,37 +16,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="@ Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-Hj-daH">
-                                <rect key="frame" x="16" y="412" width="266" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="@ Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-Hj-daH">
+                                <rect key="frame" x="27" y="328" width="236.5" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="cQJ-r9-n2r"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocO-5I-fRW">
-                                <rect key="frame" x="290" y="415" width="74" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
-                                <connections>
-                                    <action selector="didTapCancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ejn-WW-Lvj"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yf4-SV-NJo">
-                                <rect key="frame" x="127" y="211" width="177" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yf4-SV-NJo">
+                                <rect key="frame" x="112.5" y="130.5" width="150" height="148.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="VGK-1t-3yq"/>
+                                    <constraint firstAttribute="width" constant="150" id="rOz-yo-Cup"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SR5-CP-1nz">
-                                <rect key="frame" x="16" y="454" width="343" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SR5-CP-1nz">
+                                <rect key="frame" x="27" y="382" width="321" height="40"/>
+                                <color key="backgroundColor" red="0.41960784309999999" green="0.84705882349999995" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="z9v-oa-YvE"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Submit"/>
                                 <connections>
                                     <action selector="didTapSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xJ4-ch-5x6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocO-5I-fRW">
+                                <rect key="frame" x="279.5" y="328" width="68.5" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Yb8-Ip-HeR"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ejn-WW-Lvj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Vj-Hj-daH" firstAttribute="top" secondItem="yf4-SV-NJo" secondAttribute="bottom" constant="48" id="0Sz-oT-4YC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ocO-5I-fRW" secondAttribute="trailing" constant="27" id="5g1-NG-QXE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SR5-CP-1nz" secondAttribute="trailing" constant="27" id="DYg-Da-a6y"/>
+                            <constraint firstItem="7Vj-Hj-daH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="Ew5-8m-C20"/>
+                            <constraint firstItem="SR5-CP-1nz" firstAttribute="top" secondItem="7Vj-Hj-daH" secondAttribute="bottom" constant="16" id="HQQ-Vk-6vk"/>
+                            <constraint firstItem="SR5-CP-1nz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="Khf-dD-rvp"/>
+                            <constraint firstItem="yf4-SV-NJo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="SNW-YY-YFK"/>
+                            <constraint firstItem="ocO-5I-fRW" firstAttribute="leading" secondItem="7Vj-Hj-daH" secondAttribute="trailing" constant="16" id="b8V-cc-erp"/>
+                            <constraint firstItem="yf4-SV-NJo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cgM-CZ-h0o"/>
+                            <constraint firstItem="ocO-5I-fRW" firstAttribute="top" secondItem="7Vj-Hj-daH" secondAttribute="top" id="eWw-7x-HpH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Explorer" id="Yr8-qm-AaF"/>
                     <connections>
@@ -58,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="95.758928571428569"/>
+            <point key="canvasLocation" x="1040.8" y="94.902548725637189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fgw-gA-OFL">
