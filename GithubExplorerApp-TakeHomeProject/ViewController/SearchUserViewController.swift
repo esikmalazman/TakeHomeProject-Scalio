@@ -35,7 +35,10 @@ extension SearchUserViewController {
             #warning("present alert to insert string")
             return
         }
-        print("Push to NextVC")
+        
+        let searchResultsVC = SearchResultsViewController()
+        navigationController?.pushViewController(searchResultsVC, animated: true)
+        
         networkManager.requestLogin(loginText)
     }
 }

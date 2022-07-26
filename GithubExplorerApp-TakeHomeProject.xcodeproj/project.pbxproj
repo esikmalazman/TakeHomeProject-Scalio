@@ -15,6 +15,10 @@
 		7F535368289020020094565B /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F535367289020020094565B /* SearchUserViewController.swift */; };
 		7F53536B289028C20094565B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53536A289028C20094565B /* User.swift */; };
 		7F53536E28902A160094565B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53536D28902A160094565B /* NetworkManager.swift */; };
+		7F8BB1A728903AF5007D135A /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8BB1A528903AF5007D135A /* SearchResultsViewController.swift */; };
+		7F8BB1A828903AF5007D135A /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8BB1A628903AF5007D135A /* SearchResultsViewController.xib */; };
+		7F8BB1AC28903E3D007D135A /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8BB1AA28903E3D007D135A /* UserCollectionViewCell.swift */; };
+		7F8BB1AD28903E3D007D135A /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8BB1AB28903E3D007D135A /* UserCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +43,10 @@
 		7F535367289020020094565B /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		7F53536A289028C20094565B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F53536D28902A160094565B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7F8BB1A528903AF5007D135A /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		7F8BB1A628903AF5007D135A /* SearchResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultsViewController.xib; sourceTree = "<group>"; };
+		7F8BB1AA28903E3D007D135A /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		7F8BB1AB28903E3D007D135A /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 		7F53533528900AFF0094565B /* GithubExplorerApp-TakeHomeProject */ = {
 			isa = PBXGroup;
 			children = (
+				7F8BB1A928903E10007D135A /* View */,
 				7F53536C28902A000094565B /* Networking */,
 				7F535369289028B70094565B /* Model */,
 				7F53536628901FE60094565B /* ViewController */,
@@ -104,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				7F535367289020020094565B /* SearchUserViewController.swift */,
+				7F8BB1A528903AF5007D135A /* SearchResultsViewController.swift */,
+				7F8BB1A628903AF5007D135A /* SearchResultsViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -122,6 +133,15 @@
 				7F53536D28902A160094565B /* NetworkManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		7F8BB1A928903E10007D135A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F8BB1AA28903E3D007D135A /* UserCollectionViewCell.swift */,
+				7F8BB1AB28903E3D007D135A /* UserCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,8 +226,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F53534328900B030094565B /* LaunchScreen.storyboard in Resources */,
+				7F8BB1AD28903E3D007D135A /* UserCollectionViewCell.xib in Resources */,
 				7F53534028900B030094565B /* Assets.xcassets in Resources */,
 				7F53533E28900AFF0094565B /* Main.storyboard in Resources */,
+				7F8BB1A828903AF5007D135A /* SearchResultsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,9 +248,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F53536B289028C20094565B /* User.swift in Sources */,
+				7F8BB1A728903AF5007D135A /* SearchResultsViewController.swift in Sources */,
 				7F53533728900AFF0094565B /* AppDelegate.swift in Sources */,
 				7F53536E28902A160094565B /* NetworkManager.swift in Sources */,
 				7F535368289020020094565B /* SearchUserViewController.swift in Sources */,
+				7F8BB1AC28903E3D007D135A /* UserCollectionViewCell.swift in Sources */,
 				7F53533928900AFF0094565B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

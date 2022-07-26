@@ -50,7 +50,7 @@ extension SearchResultsViewController : UICollectionViewDataSource {
 
 
 #warning("""
-1. Assign outlets and configure basic collection view
+1. Assign outlets and configure basic collection view ✅
 2. Create custom collection view cell and layout size of cell
 3. Refactor to MVVM and Implement pagination
 4. Add alert show if emtpy login (nice to have)
