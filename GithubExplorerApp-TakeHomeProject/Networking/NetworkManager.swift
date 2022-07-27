@@ -17,7 +17,7 @@ class NetworkManager {
     
     var session : URLSessionContract = URLSession.shared
     
-    func requestLogin(_ user : String) {
+    func requestLogin(_ user : String, completions : @escaping ([User]?, Error?)->Void) {
         guard let url = URL(string: "https://api.github.com/search/users?q=\(user)&page=1&per_page=9") else {
             return
         }
@@ -26,11 +26,13 @@ class NetworkManager {
         session.dataTask(with: url) { data, response, error in
             
             if let error = error {
+                completions(nil, error)
                 fatalError(" Error : \(String(describing: error))")
                 return
             }
             
             guard let data = data else {
+                completions(nil, error)
                 fatalError("Invalid Data")
                 return
             }
@@ -38,8 +40,10 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let object =  try decoder.decode(UsersResponse.self, from: data)
+                completions(object.items, nil)
                 dump(object)
             } catch {
+                completions(nil, error)
                 fatalError("Error : \(String(describing: error))")
             }
             
