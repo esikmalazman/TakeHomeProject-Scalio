@@ -33,6 +33,10 @@ extension SearchUserViewController {
     @IBAction private func didTapSubmit(_ sender : UIButton) {
         guard let loginText = loginTextField.text, !loginText.isEmpty else {
             #warning("present alert to insert string")
+            presentSimpleAlert(message: "Please enter words in Login",
+                               buttonTitle: "OK") { [weak self] in
+                self?.loginTextField.becomeFirstResponder()
+            }
             return
         }
         
@@ -63,7 +67,7 @@ TODO's
 1. Setup data model ✅
 2. Setup and basic configure network request ✅
 3. Verify no empty spaces in textfield in order to proceed to search, check in submit button or textfield ✅
-4. Add alert show if emtpy login (nice to have)
+4. Add alert show if emtpy login (nice to have) ✅
 5. Refactor to MVVM
 """)
 
