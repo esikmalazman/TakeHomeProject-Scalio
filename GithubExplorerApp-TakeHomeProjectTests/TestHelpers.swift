@@ -25,3 +25,10 @@ func putViewInWindow(_ vc : UIViewController) {
 func executeRunLoop() {
     RunLoop.main.run(until: Date())
 }
+
+//MARK: - UITextfield Delegate
+/// Helper method to execute return action from textfield delegate
+@discardableResult
+func shouldReturn(_ textfield : UITextField) -> Bool? {
+    return textfield.delegate?.textFieldShouldReturn?(textfield)
+}
