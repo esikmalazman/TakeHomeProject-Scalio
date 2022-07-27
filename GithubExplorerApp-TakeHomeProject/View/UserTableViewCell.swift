@@ -8,17 +8,18 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
-
+    
     @IBOutlet private(set) weak var userImageView: UIImageView!
     @IBOutlet private(set) weak var usernameLabel: UILabel!
-    @IBOutlet private(set) weak var userTypeLabel: UILabel!
+    @IBOutlet private(set) weak var userTypeLabel: UIButton!
     @IBOutlet private(set) weak var repositoryNameLabel: UILabel!
     @IBOutlet private(set) weak var repositoryLinkLabel: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let margins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        contentView.frame = contentView.frame.inset(by: margins)
+        setupContentView()
+        setupUserTypeLabel()
+        setupRoundedUserImage()
     }
     
     static let identifier = "UserTableViewCell"
@@ -29,8 +30,26 @@ class UserTableViewCell: UITableViewCell {
     
     func configure(cell data : User) {
         usernameLabel.text = data.login
-        userTypeLabel.text = data.type
+        userTypeLabel.titleLabel?.text = data.type
         userImageView.downloadImage(fromURLString: data.avatar_url ?? "")
-        #warning("add configure for repo name and link too")
+#warning("add configure for repo name and link too")
+    }
+}
+
+private extension UserTableViewCell {
+    func setupContentView() {
+        let margins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        contentView.frame = contentView.frame.inset(by: margins)
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 8
+    }
+    
+    func setupUserTypeLabel() {
+        userTypeLabel.layer.cornerRadius = 8
+    }
+    
+    func setupRoundedUserImage() {
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
+        userImageView.clipsToBounds = true
     }
 }

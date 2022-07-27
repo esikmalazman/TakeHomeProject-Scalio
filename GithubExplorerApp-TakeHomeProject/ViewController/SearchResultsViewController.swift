@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchResultsViewController: UIViewController {
-
+    
     @IBOutlet private(set) weak var totalUsersLabel: UILabel!
     @IBOutlet private(set) weak var resultsTableView: UITableView!
     
@@ -27,10 +27,8 @@ class SearchResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Search Results"
-        resultsTableView.register(UserTableViewCell.nib(), forCellReuseIdentifier: UserTableViewCell.identifier)
-        resultsTableView.dataSource = self
-        resultsTableView.delegate = self
+        setupViewApperance()
+        setupTableView()
         viewModel.delegate = self
     }
 }
@@ -56,6 +54,9 @@ extension SearchResultsViewController : UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+    }
 }
 
 //MARK: - UITableViewDelegate
@@ -80,15 +81,31 @@ extension SearchResultsViewController : SearchViewModelDelegate {
         }
         let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
             self.viewModel.resetListOfUsers()
-        self.viewModel.requestUsers(self.username)
+            self.viewModel.requestUsers(self.username)
         }
         
         presentSimpleAlert( message: message, actions: [cancelAction,retryAction])
-                            
+        
     }
 }
 
+private extension SearchResultsViewController {
+    func setupTableView() {
+        resultsTableView.register(UserTableViewCell.nib(), forCellReuseIdentifier: UserTableViewCell.identifier)
+        resultsTableView.dataSource = self
+        resultsTableView.delegate = self
+        
+        resultsTableView.backgroundColor = AppTheme.lightGrey
+    }
+    
+    func setupViewApperance() {
+        title = "Search Results"
+        navigationController?.navigationBar.tintColor = AppTheme.primaryGreen
+    }
+}
 #warning("""
 1. Show empty state (nice to have)
 2. Add pull to refresh (nice to have)
+3. Remove comments
+4. Add basic unit test
 """)
