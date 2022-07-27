@@ -17,7 +17,9 @@ class SearchViewModel {
     weak var delegate : SearchViewModelDelegate?
     
     func validateLoginField(_ username : String?) {
-        guard let username = username, !username.isEmpty else {
+        guard let username = username,
+                !username.isEmpty ,
+                !username.trimmingCharacters(in: .whitespaces).isEmpty else {
             delegate?.showEmptyAlert(self)
             return
         }
