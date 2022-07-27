@@ -36,10 +36,7 @@ class SearchResultViewModel {
 }
 
 extension SearchResultViewModel {
-    func userAvatarUrl(at index : Int) -> String? {
-        if let urlString = listOfUser[index].avatar_url {
-            return urlString
-        }
-        return nil
+    func totalNumberOfUsers() -> String {
+        return "\(listOfUser.count) Results found"
     }
 }
