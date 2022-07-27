@@ -63,7 +63,6 @@ extension SearchResultsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
 }
 
 extension SearchResultsViewController : SearchViewModelDelegate {
@@ -74,10 +73,22 @@ extension SearchResultsViewController : SearchViewModelDelegate {
             self.resultsTableView.reloadData()
         }
     }
+    
+    func showFailureAlert(_ message: String) {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
+            self.viewModel.resetListOfUsers()
+        self.viewModel.requestUsers(self.username)
+        }
+        
+        presentSimpleAlert( message: message, actions: [cancelAction,retryAction])
+                            
+    }
 }
 
 #warning("""
-1. Add alert show if error (nice to have)
-2. Show empty state (nice to have)
-3. Sort list of result by alphabet
+1. Show empty state (nice to have)
+2. Add pull to refresh (nice to have)
 """)

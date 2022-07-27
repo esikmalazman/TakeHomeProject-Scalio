@@ -17,7 +17,7 @@ class SearchResultViewModel {
     var networkManager = NetworkManager()
     
     weak var delegate : SearchViewModelDelegate?
-
+    
     var page = 1
     var listOfUser = [User]() {
         didSet {
@@ -46,6 +46,11 @@ class SearchResultViewModel {
     func nextPageUser(_ user : String) {
         page = page + 1
         requestUsers(user)
+    }
+    
+    func resetListOfUsers() {
+        page = 1
+        listOfUser = []
     }
 }
 
