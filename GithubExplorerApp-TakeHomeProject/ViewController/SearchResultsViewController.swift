@@ -10,7 +10,7 @@ import UIKit
 class SearchResultsViewController: UIViewController {
 
     @IBOutlet private(set) weak var totalUsersLabel: UILabel!
-    @IBOutlet private(set) weak var resultsCollectionView: UICollectionView!
+    @IBOutlet private(set) weak var resultsTableView: UITableView!
     
     let username : String
     let viewModel = SearchResultViewModel()
@@ -28,73 +28,56 @@ class SearchResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search Results"
-        resultsCollectionView.register(UserCollectionViewCell.nib(), forCellWithReuseIdentifier: UserCollectionViewCell.identifier)
-        resultsCollectionView.delegate = self
-        resultsCollectionView.dataSource = self
+        resultsTableView.register(UserTableViewCell.nib(), forCellReuseIdentifier: UserTableViewCell.identifier)
+        resultsTableView.dataSource = self
+        resultsTableView.delegate = self
         viewModel.delegate = self
     }
 }
 
-extension SearchResultsViewController : UICollectionViewDelegate {}
-
-extension SearchResultsViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width : CGFloat = view.bounds.width / 2.2
-        let height : CGFloat = 180
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-    }
-}
-
-extension SearchResultsViewController : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//MARK: - UITableViewDataSource
+extension SearchResultsViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.listOfUser.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = resultsCollectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionViewCell.identifier, for: indexPath) as! UserCollectionViewCell
-
-        cell.userImageView.downloadImage(fromURLString: viewModel.userAvatarUrl(at: indexPath.row) ?? "")
-        cell.loginNameLabel.text = "Rock"
-        cell.userTypeLabel.text = "User"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let lastUsers = viewModel.listOfUser.count - 1
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as! UserTableViewCell
         
-        if lastUsers == indexPath.row {
+        let data = viewModel.listOfUser[indexPath.row]
+        cell.configure(cell:data)
+        
+        let lastResults = viewModel.listOfUser.count - 1
+        if lastResults == indexPath.row {
             viewModel.nextPageUser(username)
         }
         
         return cell
     }
+    
+}
+
+//MARK: - UITableViewDelegate
+extension SearchResultsViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
 }
 
 extension SearchResultsViewController : SearchViewModelDelegate {
     func didReceiveUsers() {
         print("Total Users : \(viewModel.listOfUser.count)")
         DispatchQueue.main.async {
-            self.resultsCollectionView.reloadData()
+            self.totalUsersLabel.text = self.viewModel.totalNumberOfUsers()
+            self.resultsTableView.reloadData()
         }
     }
 }
 
-
-
 #warning("""
-1. Assign outlets and configure basic collection view ✅
-2. Create custom collection view cell and layout size of cell ✅
-3. Refactor to MVVM and Implement pagination ✅
-4. Add alert show if emtpy login (nice to have)
-5. Show empty state (nice to have)
+1. Add alert show if error (nice to have)
+2. Show empty state (nice to have)
+3. Sort list of result by alphabet
 """)
