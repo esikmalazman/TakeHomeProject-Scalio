@@ -9,11 +9,11 @@ import UIKit
 
 class UserTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var userTypeLabel: UILabel!
-    @IBOutlet weak var repositoryNameLabel: UILabel!
-    @IBOutlet weak var repositoryLinkLabel: UILabel!
+    @IBOutlet private(set) weak var userImageView: UIImageView!
+    @IBOutlet private(set) weak var usernameLabel: UILabel!
+    @IBOutlet private(set) weak var userTypeLabel: UILabel!
+    @IBOutlet private(set) weak var repositoryNameLabel: UILabel!
+    @IBOutlet private(set) weak var repositoryLinkLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +23,12 @@ class UserTableViewCell: UITableViewCell {
     
     static func nib() -> UINib {
         return UINib(nibName: "\(self)", bundle: .main)
+    }
+    
+    func configure(cell data : User) {
+        usernameLabel.text = data.login
+        userTypeLabel.text = data.type
+        userImageView.downloadImage(fromURLString: data.avatar_url ?? "")
+        #warning("add configure for repo name and link too")
     }
 }
