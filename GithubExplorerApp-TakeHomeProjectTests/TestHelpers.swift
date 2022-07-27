@@ -8,7 +8,6 @@
 import UIKit
 
 //MARK: - UIButton
-
 /// Helper method to execute action in UIButton
 func tap(_ button : UIButton) {
     button.sendActions(for: .touchUpInside)
