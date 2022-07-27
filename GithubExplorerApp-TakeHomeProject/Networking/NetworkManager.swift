@@ -18,7 +18,6 @@ class NetworkManager {
     var session : URLSessionContract = URLSession.shared
     
     func requestLogin(_ user : String, page : Int, completion : @escaping (Result<[User], APIError>)->Void) {
-#warning("take care of query that have spaces")
         let endpoint = Endpoint.users(username: user, page: page).url
         
         print("Endpoint : \(endpoint)")

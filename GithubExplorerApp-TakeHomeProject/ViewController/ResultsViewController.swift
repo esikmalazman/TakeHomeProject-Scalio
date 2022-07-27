@@ -7,20 +7,20 @@
 
 import UIKit
 
-class SearchResultsViewController: UIViewController {
+class ResultsViewController: UIViewController {
     
     @IBOutlet private(set) weak var totalUsersLabel: UILabel!
     @IBOutlet private(set) weak var resultsTableView: UITableView!
     
     let username : String
-    let viewModel = SearchResultViewModel()
+    let viewModel = ResultsViewModel()
     
     init(username : String) {
         self.username = username
         viewModel.requestUsers(username)
         super.init(nibName: nil, bundle: nil)
     }
-    
+     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,7 +34,7 @@ class SearchResultsViewController: UIViewController {
 }
 
 //MARK: - UITableViewDataSource
-extension SearchResultsViewController : UITableViewDataSource {
+extension ResultsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.listOfUser.count
     }
@@ -60,13 +60,14 @@ extension SearchResultsViewController : UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension SearchResultsViewController : UITableViewDelegate {
+extension ResultsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
 }
 
-extension SearchResultsViewController : SearchViewModelDelegate {
+//MARK: - ResultsViewModelDelegate
+extension ResultsViewController : ResultsViewModelDelegate {
     func didReceiveUsers() {
         print("Total Users : \(viewModel.listOfUser.count)")
         DispatchQueue.main.async {
@@ -89,7 +90,8 @@ extension SearchResultsViewController : SearchViewModelDelegate {
     }
 }
 
-private extension SearchResultsViewController {
+//MARK: - Private
+private extension ResultsViewController {
     func setupTableView() {
         resultsTableView.register(UserTableViewCell.nib(), forCellReuseIdentifier: UserTableViewCell.identifier)
         resultsTableView.dataSource = self

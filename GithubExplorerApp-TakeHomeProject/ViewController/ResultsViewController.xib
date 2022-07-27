@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchResultsViewController" customModule="GithubExplorerApp_TakeHomeProject" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultsViewController" customModule="GithubExplorerApp_TakeHomeProject" customModuleProvider="target">
             <connections>
                 <outlet property="resultsTableView" destination="6Uf-qu-72R" id="adm-oP-EK8"/>
                 <outlet property="totalUsersLabel" destination="TZr-p5-Sue" id="XrT-1n-EB1"/>

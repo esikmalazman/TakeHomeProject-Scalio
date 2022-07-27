@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="@ Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-Hj-daH">
-                                <rect key="frame" x="27" y="328" width="236.5" height="38"/>
+                                <rect key="frame" x="27" y="344" width="236.5" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="cQJ-r9-n2r"/>
                                 </constraints>
@@ -26,14 +26,14 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro-image" translatesAutoresizingMaskIntoConstraints="NO" id="yf4-SV-NJo">
-                                <rect key="frame" x="112.5" y="130" width="150" height="150"/>
+                                <rect key="frame" x="112.5" y="146" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="VGK-1t-3yq"/>
                                     <constraint firstAttribute="width" constant="150" id="rOz-yo-Cup"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SR5-CP-1nz">
-                                <rect key="frame" x="27" y="382" width="321" height="40"/>
+                                <rect key="frame" x="27" y="398" width="321" height="40"/>
                                 <color key="backgroundColor" name="primary-green"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="z9v-oa-YvE"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocO-5I-fRW">
-                                <rect key="frame" x="279.5" y="328" width="68.5" height="38"/>
+                                <rect key="frame" x="279.5" y="344" width="68.5" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="Yb8-Ip-HeR"/>
                                 </constraints>
@@ -67,7 +67,7 @@
                             <constraint firstItem="7Vj-Hj-daH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="Ew5-8m-C20"/>
                             <constraint firstItem="SR5-CP-1nz" firstAttribute="top" secondItem="7Vj-Hj-daH" secondAttribute="bottom" constant="16" id="HQQ-Vk-6vk"/>
                             <constraint firstItem="SR5-CP-1nz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="Khf-dD-rvp"/>
-                            <constraint firstItem="yf4-SV-NJo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="SNW-YY-YFK"/>
+                            <constraint firstItem="yf4-SV-NJo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="SNW-YY-YFK"/>
                             <constraint firstItem="ocO-5I-fRW" firstAttribute="leading" secondItem="7Vj-Hj-daH" secondAttribute="trailing" constant="16" id="b8V-cc-erp"/>
                             <constraint firstItem="yf4-SV-NJo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cgM-CZ-h0o"/>
                             <constraint firstItem="ocO-5I-fRW" firstAttribute="top" secondItem="7Vj-Hj-daH" secondAttribute="top" id="eWw-7x-HpH"/>

@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol SearchViewModelDelegate : AnyObject {
+protocol ResultsViewModelDelegate : AnyObject {
     func didReceiveUsers()
     func showFailureAlert(_ message : String)
 }
 
-class SearchResultViewModel {
+class ResultsViewModel {
     
     var networkManager = NetworkManager()
     
-    weak var delegate : SearchViewModelDelegate?
+    weak var delegate : ResultsViewModelDelegate?
     
     var page = 1
     var listOfUser = [User]() {
@@ -54,7 +54,7 @@ class SearchResultViewModel {
     }
 }
 
-extension SearchResultViewModel {
+extension ResultsViewModel {
     func totalNumberOfUsers() -> String {
         return "\(listOfUser.count) Results found"
     }

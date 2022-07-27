@@ -14,7 +14,7 @@ class SearchUserViewController: UIViewController {
     @IBOutlet private(set) weak var submitButton: UIButton!
     @IBOutlet private(set) weak var introImageView: UIImageView!
     
-    let viewModel = SearchUserViewModel()
+    let viewModel = SearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +47,8 @@ extension SearchUserViewController : UITextFieldDelegate {
 }
 
 //MARK: - SearchUserViewModelDelegate
-extension SearchUserViewController : SearchUserViewModelDelegate {
-    func showEmptyAlert(_ viewModel: SearchUserViewModel) {
+extension SearchUserViewController : SearchViewModelDelegate {
+    func showEmptyAlert(_ viewModel: SearchViewModel) {
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.loginTextField.becomeFirstResponder()
         }
@@ -57,13 +57,13 @@ extension SearchUserViewController : SearchUserViewModelDelegate {
                            actions: [okAction])
     }
     
-    func beginSearchUsername(_ viewModel: SearchUserViewModel, username: String) {
-        let searchResultsVC = SearchResultsViewController(username: username)
+    func beginSearchUsername(_ viewModel: SearchViewModel, username: String) {
+        let searchResultsVC = ResultsViewController(username: username)
         navigationController?.pushViewController(searchResultsVC, animated: true)
     }
 }
 
-
+//MARK: - Private
 private extension SearchUserViewController {
     func configureViewController() {
         loginTextField.delegate = self

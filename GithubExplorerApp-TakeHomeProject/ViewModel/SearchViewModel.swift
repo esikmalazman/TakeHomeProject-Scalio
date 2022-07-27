@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol SearchUserViewModelDelegate : AnyObject {
-    func showEmptyAlert(_ viewModel : SearchUserViewModel)
-    func beginSearchUsername(_ viewModel : SearchUserViewModel, username :String)
+protocol SearchViewModelDelegate : AnyObject {
+    func showEmptyAlert(_ viewModel : SearchViewModel)
+    func beginSearchUsername(_ viewModel : SearchViewModel, username :String)
 }
 
-class SearchUserViewModel {
+class SearchViewModel {
     
-    var delegate : SearchUserViewModelDelegate?
+    weak var delegate : SearchViewModelDelegate?
     
     func validateLoginField(_ username : String?) {
         guard let username = username, !username.isEmpty else {
