@@ -14,10 +14,12 @@ class SearchUserViewController: UIViewController {
     @IBOutlet private(set) weak var submitButton: UIButton!
     @IBOutlet private(set) weak var introImageView: UIImageView!
     
-    var networkManager = NetworkManager()
+    let viewModel = SearchUserViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.delegate = self
+        viewModel.delegate = self
     }
     
 }
@@ -27,25 +29,10 @@ extension SearchUserViewController {
     @IBAction private func didTapCancel(_ sender : UIButton) {
         loginTextField.text = ""
         loginTextField.resignFirstResponder()
-        print("Cancel Tap")
     }
     
     @IBAction private func didTapSubmit(_ sender : UIButton) {
-        guard let loginText = loginTextField.text, !loginText.isEmpty else {
-            #warning("present alert to insert string")
-            presentSimpleAlert(message: "Please enter words in Login",
-                               buttonTitle: "OK") { [weak self] in
-                self?.loginTextField.becomeFirstResponder()
-            }
-            return
-        }
-        
-        let searchResultsVC = SearchResultsViewController(username: loginText)
-        navigationController?.pushViewController(searchResultsVC, animated: true)
-        
-        networkManager.requestLogin(loginText) { users, error in
-            
-        }
+        viewModel.validateLoginField(loginTextField.text)
     }
 }
 
@@ -61,14 +48,27 @@ extension SearchUserViewController : UITextFieldDelegate {
     }
 }
 
-
+//MARK: - SearchUserViewModelDelegate
+extension SearchUserViewController : SearchUserViewModelDelegate {
+    func showEmptyAlert(_ viewModel: SearchUserViewModel) {
+        presentSimpleAlert(message: "Please enter words in Login",
+                           buttonTitle: "OK") { [weak self] in
+            self?.loginTextField.becomeFirstResponder()
+        }
+    }
+    
+    func beginSearchUsername(_ viewModel: SearchUserViewModel, username: String) {
+        let searchResultsVC = SearchResultsViewController(username: username)
+        navigationController?.pushViewController(searchResultsVC, animated: true)
+    }
+}
 #warning("""
 TODO's
 1. Setup data model ✅
 2. Setup and basic configure network request ✅
 3. Verify no empty spaces in textfield in order to proceed to search, check in submit button or textfield ✅
 4. Add alert show if emtpy login (nice to have) ✅
-5. Refactor to MVVM
+5. Refactor to MVVM ✅
 """)
 
 // https://stackoverflow.com/questions/24102641/how-to-check-if-a-text-field-is-empty-or-not-in-swift
