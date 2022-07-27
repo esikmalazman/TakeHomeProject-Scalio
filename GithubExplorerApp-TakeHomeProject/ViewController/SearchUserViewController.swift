@@ -18,10 +18,8 @@ class SearchUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginTextField.delegate = self
-        viewModel.delegate = self
+        configureViewController()
     }
-    
 }
 
 //MARK: - Actions
@@ -56,11 +54,23 @@ extension SearchUserViewController : SearchUserViewModelDelegate {
         }
         
         presentSimpleAlert(message: "Please enter words in Login",
-                            actions: [okAction])
+                           actions: [okAction])
     }
     
     func beginSearchUsername(_ viewModel: SearchUserViewModel, username: String) {
         let searchResultsVC = SearchResultsViewController(username: username)
         navigationController?.pushViewController(searchResultsVC, animated: true)
+    }
+}
+
+
+private extension SearchUserViewController {
+    func configureViewController() {
+        loginTextField.delegate = self
+        viewModel.delegate = self
+        
+        submitButton.layer.cornerRadius = 8
+        navigationController?.navigationBar
+            .largeTitleTextAttributes = [.foregroundColor: AppTheme.primaryGreen]
     }
 }
