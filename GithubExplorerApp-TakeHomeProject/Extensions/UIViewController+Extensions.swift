@@ -8,9 +8,9 @@
 import UIKit
 
 extension UIViewController {
-    func presentSimpleAlert(_ title : String = "",
+    func createSimpleAlert(_ title : String = "",
                             message : String?,
-                            actions : [UIAlertAction]) {
+                            actions : [UIAlertAction]) -> UIAlertController {
         
         let alertController = UIAlertController(title: title,
                                                 message: message,
@@ -20,8 +20,10 @@ extension UIViewController {
             alertController.addAction(action)
         }
         
-        DispatchQueue.main.async { [weak self] in
-            self?.present(alertController, animated: true)
-        }
+//        DispatchQueue.main.async { [weak self] in
+//            self?.present(alertController, animated: true)
+//        }
+        
+        return alertController
     }
 }
