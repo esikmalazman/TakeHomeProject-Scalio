@@ -18,26 +18,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mock-image" translatesAutoresizingMaskIntoConstraints="NO" id="0SJ-Hd-Osg">
-                        <rect key="frame" x="15" y="12" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="12" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="8MV-h2-FYL"/>
                             <constraint firstAttribute="width" constant="50" id="rpv-fA-3ER"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LoginLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWd-Hu-pN0">
-                        <rect key="frame" x="80" y="12" width="225" height="20.5"/>
+                        <rect key="frame" x="65" y="12" width="240" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GQ-uO-bE9">
-                        <rect key="frame" x="15" y="83" width="305" height="20.5"/>
+                        <rect key="frame" x="0.0" y="83" width="320" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbY-Gu-euC">
-                        <rect key="frame" x="80" y="39.5" width="240" height="20.5"/>
+                        <rect key="frame" x="65" y="39.5" width="255" height="20.5"/>
                         <color key="backgroundColor" red="0.41960784309999999" green="0.84705882349999995" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -51,12 +51,13 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository Link" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztA-gW-JEm">
-                        <rect key="frame" x="15" y="113.5" width="305" height="20.5"/>
+                        <rect key="frame" x="0.0" y="113.5" width="320" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.94587343930000001" green="0.41552513839999999" blue="0.20674976710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="pgN-C0-2L1" firstAttribute="top" secondItem="0SJ-Hd-Osg" secondAttribute="bottom" constant="12" id="1rF-FR-DJt"/>
                     <constraint firstAttribute="trailing" secondItem="MWd-Hu-pN0" secondAttribute="trailing" constant="15" id="2KX-Ps-QZu"/>
@@ -71,9 +72,9 @@
                     <constraint firstItem="bbY-Gu-euC" firstAttribute="top" secondItem="MWd-Hu-pN0" secondAttribute="bottom" constant="7" id="h5Y-Kf-voB"/>
                     <constraint firstItem="MWd-Hu-pN0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="jHE-Yq-TsK"/>
                     <constraint firstAttribute="trailing" secondItem="bbY-Gu-euC" secondAttribute="trailing" id="rq6-h3-E18"/>
-                    <constraint firstItem="5GQ-uO-bE9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="rra-5a-ve5"/>
+                    <constraint firstItem="5GQ-uO-bE9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rra-5a-ve5"/>
                     <constraint firstItem="ztA-gW-JEm" firstAttribute="leading" secondItem="5GQ-uO-bE9" secondAttribute="leading" id="sdv-kZ-ugb"/>
-                    <constraint firstItem="0SJ-Hd-Osg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="u9p-y9-7AN"/>
+                    <constraint firstItem="0SJ-Hd-Osg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="u9p-y9-7AN"/>
                     <constraint firstItem="bbY-Gu-euC" firstAttribute="leading" secondItem="0SJ-Hd-Osg" secondAttribute="trailing" constant="15" id="yaN-Pm-FuO"/>
                 </constraints>
             </tableViewCellContentView>

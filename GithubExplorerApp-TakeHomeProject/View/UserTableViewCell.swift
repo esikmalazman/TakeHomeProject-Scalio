@@ -15,8 +15,10 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet private(set) weak var repositoryNameLabel: UILabel!
     @IBOutlet private(set) weak var repositoryLinkLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let margins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        contentView.frame = contentView.frame.inset(by: margins)
     }
     
     static let identifier = "UserTableViewCell"
