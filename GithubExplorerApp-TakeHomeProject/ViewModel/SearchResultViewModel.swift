@@ -9,6 +9,7 @@ import Foundation
 
 protocol SearchViewModelDelegate : AnyObject {
     func didReceiveUsers()
+    func showFailureAlert(_ message : String)
 }
 
 class SearchResultViewModel {
@@ -27,11 +28,18 @@ class SearchResultViewModel {
     }
     
     func requestUsers(_ user : String) {
-        networkManager.requestLogin(user) { users, error in
-            users?.forEach { user in
-                self.listOfUser.append(user)
+        networkManager.requestLogin(user, page: page) { [weak self] result in
+            switch result {
+                
+            case .success(let users):
+                users.forEach { user in
+                    self?.listOfUser.append(user)
+                }
+                self?.delegate?.didReceiveUsers()
+                
+            case .failure(let error):
+                self?.delegate?.showFailureAlert(error.rawValue)
             }
-            self.delegate?.didReceiveUsers()
         }
     }
     

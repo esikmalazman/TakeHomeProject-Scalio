@@ -17,7 +17,7 @@ class NetworkManager {
     
     var session : URLSessionContract = URLSession.shared
     
-    func requestLogin(_ user : String, page : Int, completion : @escaping (Result<[User], Error>)->Void) {
+    func requestLogin(_ user : String, page : Int, completion : @escaping (Result<[User], APIError>)->Void) {
 #warning("take care of query that have spaces")
         let endpoint = Endpoint.users(username: user, page: page).url
         
@@ -34,15 +34,17 @@ class NetworkManager {
         }
     }
     
-    func requestApi<T:Decodable>(from url : URL, objectToDecode object : T.Type, completion : @escaping (Result<T,Error>)->Void) {
+    func requestApi<T:Decodable>(from url : URL, objectToDecode object : T.Type, completion : @escaping (Result<T,APIError>)->Void) {
         
         let task = session.dataTask(with: url) { data, response, error in
             
             if let _ = error {
+                completion(.failure(.unableToComplete))
                 return
             }
             
             guard let data = data else {
+                completion(.failure(.invalidData))
                 return
             }
             
@@ -52,7 +54,7 @@ class NetworkManager {
                 completion(.success(decodedObject))
                 
             } catch {
-                completion(.failure(error))
+                completion(.failure(.invalidData))
                 fatalError("Error : \(String(describing: error))")
             }
             
@@ -61,11 +63,3 @@ class NetworkManager {
         task.resume()
     }
 }
-
-
-#warning("""
-TODO's
-1. Make generic network request ✅
-2. Utilise URLComponents to refactor api path✅
-3. Add pagination ✅
-""")
