@@ -65,7 +65,8 @@ extension SearchResultsViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = resultsCollectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionViewCell.identifier, for: indexPath) as! UserCollectionViewCell
-        cell.userImageView.image = UIImage(named: "mock-image")
+
+        cell.userImageView.downloadImage(fromURLString: viewModel.userAvatarUrl(at: indexPath.row) ?? "")
         cell.loginNameLabel.text = "Rock"
         cell.userTypeLabel.text = "User"
         
