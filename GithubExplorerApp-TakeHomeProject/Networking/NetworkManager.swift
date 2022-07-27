@@ -62,42 +62,10 @@ class NetworkManager {
     }
 }
 
-extension URL {
-    static func createEndpoint(_ endpoint : String) -> URL {
-        let urlString = "https://api.github.com/search/\(endpoint)"
-            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        
-        return URL(string: urlString ?? "")!
-    }
-}
-enum Endpoint {
-    case users(username : String, page : Int = 1, usersPerPage : Int = 9)
-}
-
-enum ApiURL : String {
-    case baseURL
-}
-
-extension ApiURL {
-    var url : URL {
-        return URL(string: "https://api.github.com/search/")!
-    }
-}
-
-extension Endpoint {
-    
-    var url : URL {
-        switch self {
-        case .users(let username, let page, let resultsPerPage):
-            return .createEndpoint("users?q=\(username)&page=\(page)&per_page=\(resultsPerPage)")
-        }
-    }
-}
-
 
 #warning("""
 TODO's
-1. Make generic network request
-2. Utilise URLComponents to refactor api path
+1. Make generic network request ✅
+2. Utilise URLComponents to refactor api path✅
 3. Add pagination ✅
 """)
