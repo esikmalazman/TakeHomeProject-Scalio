@@ -9,4 +9,5 @@ import UIKit
 
 struct AppTheme {
     static let primaryGreen = UIColor(named: "primary-green")!
+    static let lightGrey = UIColor(named: "light-grey")!
 }
