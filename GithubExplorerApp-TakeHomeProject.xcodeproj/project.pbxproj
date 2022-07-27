@@ -27,6 +27,7 @@
 		7FAFCEF72890D34200A38502 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */; };
 		7FD00B86289111D300BA4FD2 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B85289111D300BA4FD2 /* URL+Extensions.swift */; };
 		7FD00B882891120C00BA4FD2 /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B872891120C00BA4FD2 /* NetworkUtilities.swift */; };
+		7FD00B8A2891543000BA4FD2 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B892891543000BA4FD2 /* AppTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		7FD00B85289111D300BA4FD2 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		7FD00B872891120C00BA4FD2 /* NetworkUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
+		7FD00B892891543000BA4FD2 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				7F53533F28900B030094565B /* Assets.xcassets */,
 				7F53534128900B030094565B /* LaunchScreen.storyboard */,
 				7F53534428900B030094565B /* Info.plist */,
+				7FD00B892891543000BA4FD2 /* AppTheme.swift */,
 			);
 			path = "GithubExplorerApp-TakeHomeProject";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				7FD00B882891120C00BA4FD2 /* NetworkUtilities.swift in Sources */,
 				7FAFCEEF2890BBBD00A38502 /* UIImageView+Extensions.swift in Sources */,
 				7F53536E28902A160094565B /* NetworkManager.swift in Sources */,
+				7FD00B8A2891543000BA4FD2 /* AppTheme.swift in Sources */,
 				7FAFCEF32890C78C00A38502 /* SearchUserViewModel.swift in Sources */,
 				7F535368289020020094565B /* SearchUserViewController.swift in Sources */,
 				7F8BB1AC28903E3D007D135A /* UserCollectionViewCell.swift in Sources */,
