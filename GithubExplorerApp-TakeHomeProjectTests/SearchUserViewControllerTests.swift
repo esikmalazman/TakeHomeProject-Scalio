@@ -63,8 +63,8 @@ final class SearchUserViewControllerTests: XCTestCase {
         verifyPresentedAlert(message: "Please enter words in Login")
     }
     
-    func test_tappingSubmit_withTextThatHasSpaceWithoutEarlyCharactersInBeginning_shouldDisplayEmptyAlert() {
-        sut.loginTextField.text = ""
+    func test_tappingSubmit_withSpaceWithoutEarlyCharactersInBeginning_shouldDisplayEmptyAlert() {
+        sut.loginTextField.text = " "
         
         tap(sut.submitButton)
         
@@ -82,9 +82,9 @@ final class SearchUserViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.loginTextField.isFirstResponder)
     }
     
-    func test_tappingSubmit_withTextThatHasSpaceWithoutEarlyCharactersInBeginning_andTapOkInEmptyAler_shouldActiveLoginTextfield() throws {
+    func test_tappingSubmit_withSpaceWithoutEarlyCharactersInBeginning_andTapOkInEmptyAler_shouldActiveLoginTextfield() throws {
         putViewInWindow(sut)
-        sut.loginTextField.text = ""
+        sut.loginTextField.text = " "
         XCTAssertFalse(sut.loginTextField.isFirstResponder, "precondition - loginTextfield not active")
         
         tap(sut.submitButton)
@@ -104,7 +104,7 @@ final class SearchUserViewControllerTests: XCTestCase {
         
         let pushedVC = navController.viewControllers.last
         XCTAssertTrue(pushedVC is ResultsViewController, "Expected ResultsVC but was \(String(describing: pushedVC.self))")
-        XCTAssertEqual(navController.viewControllers.count, 2, "VC in Navigation Controller was :\(navController.viewControllers.count)")
+        XCTAssertEqual(navController.viewControllers.count, 2, "VC in Navigation Controller  Stack expected to have 2 but was :\(navController.viewControllers.count)")
     }
     
     func test_tappingSubmit_withDummyText_shouldPassDummyTextToUsernameInResultsVC() {
@@ -116,7 +116,7 @@ final class SearchUserViewControllerTests: XCTestCase {
         executeRunLoop()
         
         guard let resultVC = navController.viewControllers.last as? ResultsViewController else {
-            XCTFail("Expected ResultsVC but was \(String(describing: sut))")
+            XCTFail("Expected ResultsVC but was \(String(describing: navController.viewControllers.last))")
             return
         }
         
@@ -125,17 +125,78 @@ final class SearchUserViewControllerTests: XCTestCase {
     
     //MARK: - UITextFieldDelegate
     
-//    func test_textFieldDelegate_shouldBeConnected() {
-//        XCTAssertNotNil(sut.loginTextField.delegate)
-//    }
-//
-//    func test_tapKeyboardReturn_withEmptyText_shouldDisplayAlert() {
-//        sut.loginTextField.text = ""
-//
-//        sut.loginTextField.delegate?.textFieldShouldReturn?(sut.loginTextField)
-//
-//
-//    }
+    func test_textFieldDelegate_shouldBeConnected() {
+        XCTAssertNotNil(sut.loginTextField.delegate)
+    }
+
+    func test_tapKeyboardReturn_withEmptyText_shouldDisplayAlert() {
+        sut.loginTextField.text = ""
+
+        let isTextfieldReturn = sut.loginTextField.delegate?.textFieldShouldReturn?(sut.loginTextField)
+
+        verifyPresentedAlert(message: "Please enter words in Login")
+        XCTAssertEqual(isTextfieldReturn, true, "Expected to Return but was \(String(describing: isTextfieldReturn))")
+    }
+    
+    func test_tapKeyboardReturn_withSpaceWithoutEarlyCharactersInBeginning_shouldDisplayAlert() {
+        sut.loginTextField.text = " "
+
+        let isTextfieldReturn = shouldReturn(sut.loginTextField)
+
+        verifyPresentedAlert(message: "Please enter words in Login")
+        XCTAssertEqual(isTextfieldReturn, true, "Expected to Return but was \(String(describing: isTextfieldReturn))")
+    }
+    
+    func test_tapKeyboardReturn_withEmptyText_andTapOkInEmptyAlert_shouldActiveLoginTextfield() throws {
+        putViewInWindow(sut)
+        sut.loginTextField.text = ""
+        XCTAssertFalse(sut.loginTextField.isFirstResponder, "precondition - loginTextfield not active")
+        
+        shouldReturn(sut.loginTextField)
+        try alertVerifier.executeAction(forButton: "OK")
+        
+        XCTAssertTrue(sut.loginTextField.isFirstResponder)
+    }
+    
+    func test_tapKeyboardReturn_withSpaceWithoutEarlyCharactersInBeginning_andTapOkInEmptyAlert_shouldActiveLoginTextfield() throws {
+        putViewInWindow(sut)
+        sut.loginTextField.text = ""
+        XCTAssertFalse(sut.loginTextField.isFirstResponder, "precondition - loginTextfield not active")
+        
+        shouldReturn(sut.loginTextField)
+        try alertVerifier.executeAction(forButton: "OK")
+        
+        XCTAssertTrue(sut.loginTextField.isFirstResponder)
+    }
+    
+    func test_tappingKeyboardReturn_withDummyText_shouldPushToResultVC() {
+        let navController = UINavigationController(rootViewController: sut)
+        XCTAssertNotNil(sut.navigationController, "precondition - SUT have NavigationController")
+        sut.loginTextField.text = "DUMMY"
+        
+        shouldReturn(sut.loginTextField)
+        executeRunLoop()
+        
+        let pushedVC = navController.viewControllers.last
+        XCTAssertTrue(pushedVC is ResultsViewController, "Expected ResultsVC but was \(String(describing: pushedVC.self))")
+        XCTAssertEqual(navController.viewControllers.count, 2, "VC in Navigation Controller  Stack expected to have 2 but was :\(navController.viewControllers.count)")
+    }
+    
+    func test_tappingKeyboardReturn_withDummyText_shouldPassDummyTextToUsernameInResultsVC() {
+        let navController = UINavigationController(rootViewController: sut)
+        XCTAssertNotNil(sut.navigationController, "precondition - SUT have NavigationController")
+        sut.loginTextField.text = "DUMMY"
+        
+        shouldReturn(sut.loginTextField)
+        executeRunLoop()
+        
+        guard let pushedVC = navController.viewControllers.last as? ResultsViewController else {
+            XCTFail("Expected ResultsVC but was \(String(describing: navController.viewControllers.last))")
+            return
+        }
+        
+        XCTAssertEqual(pushedVC.username, "DUMMY")
+    }
 }
 
 private extension SearchUserViewControllerTests {
@@ -158,6 +219,6 @@ private extension SearchUserViewControllerTests {
 let test_to_covered =
 """
 1. Actions ✅
-2. Textfield Delegate
+2. Textfield Delegate ✅
 3. ViewModelDelegate
 """
