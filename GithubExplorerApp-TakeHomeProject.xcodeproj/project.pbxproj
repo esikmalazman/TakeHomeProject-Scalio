@@ -23,6 +23,8 @@
 		7FAFCEEF2890BBBD00A38502 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEEE2890BBBD00A38502 /* UIImageView+Extensions.swift */; };
 		7FAFCEF12890C1CE00A38502 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF02890C1CE00A38502 /* UIViewController+Extensions.swift */; };
 		7FAFCEF32890C78C00A38502 /* SearchUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF22890C78C00A38502 /* SearchUserViewModel.swift */; };
+		7FAFCEF62890D34200A38502 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF42890D34200A38502 /* UserTableViewCell.swift */; };
+		7FAFCEF72890D34200A38502 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		7FAFCEEE2890BBBD00A38502 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		7FAFCEF02890C1CE00A38502 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		7FAFCEF22890C78C00A38502 /* SearchUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModel.swift; sourceTree = "<group>"; };
+		7FAFCEF42890D34200A38502 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 			children = (
 				7F8BB1AA28903E3D007D135A /* UserCollectionViewCell.swift */,
 				7F8BB1AB28903E3D007D135A /* UserCollectionViewCell.xib */,
+				7FAFCEF42890D34200A38502 /* UserTableViewCell.swift */,
+				7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 				7F8BB1AD28903E3D007D135A /* UserCollectionViewCell.xib in Resources */,
 				7F53534028900B030094565B /* Assets.xcassets in Resources */,
 				7F53533E28900AFF0094565B /* Main.storyboard in Resources */,
+				7FAFCEF72890D34200A38502 /* UserTableViewCell.xib in Resources */,
 				7F8BB1A828903AF5007D135A /* SearchResultsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +286,7 @@
 				7F8BB1A728903AF5007D135A /* SearchResultsViewController.swift in Sources */,
 				7FAFCEF12890C1CE00A38502 /* UIViewController+Extensions.swift in Sources */,
 				7F53533728900AFF0094565B /* AppDelegate.swift in Sources */,
+				7FAFCEF62890D34200A38502 /* UserTableViewCell.swift in Sources */,
 				7FAFCEEF2890BBBD00A38502 /* UIImageView+Extensions.swift in Sources */,
 				7F53536E28902A160094565B /* NetworkManager.swift in Sources */,
 				7FAFCEF32890C78C00A38502 /* SearchUserViewModel.swift in Sources */,
