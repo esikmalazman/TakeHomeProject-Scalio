@@ -60,11 +60,7 @@ final class SearchUserViewControllerTests: XCTestCase {
         
         tap(sut.submitButton)
         
-        alertVerifier.verify(title: "",
-                             message: "Please enter words in Login",
-                             animated: true, actions: [.default("OK")],
-                             preferredStyle: .alert,
-                             presentingViewController: sut)
+        verifyPresentedAlert(message: "Please enter words in Login")
     }
     
     func test_tappingSubmit_withTextThatHasSpaceWithoutEarlyCharactersInBeginning_shouldDisplayEmptyAlert() {
@@ -72,11 +68,7 @@ final class SearchUserViewControllerTests: XCTestCase {
         
         tap(sut.submitButton)
         
-        alertVerifier.verify(title: "",
-                             message: "Please enter words in Login",
-                             animated: true, actions: [.default("OK")],
-                             preferredStyle: .alert,
-                             presentingViewController: sut)
+        verifyPresentedAlert(message: "Please enter words in Login")
     }
     
     func test_tappingSubmit_withEmptyText_andTapOkInEmptyAlert_shouldActiveLoginTextfield() throws {
@@ -136,13 +128,13 @@ final class SearchUserViewControllerTests: XCTestCase {
 //    func test_textFieldDelegate_shouldBeConnected() {
 //        XCTAssertNotNil(sut.loginTextField.delegate)
 //    }
-//    
+//
 //    func test_tapKeyboardReturn_withEmptyText_shouldDisplayAlert() {
 //        sut.loginTextField.text = ""
-//        
+//
 //        sut.loginTextField.delegate?.textFieldShouldReturn?(sut.loginTextField)
-//        
-//        
+//
+//
 //    }
 }
 
