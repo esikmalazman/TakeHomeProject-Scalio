@@ -9,9 +9,12 @@ import UIKit
 
 class UserCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var loginNameLabel: UILabel!
+    @IBOutlet weak var userTypeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     static let identifier = "UserCollectionViewCell"
