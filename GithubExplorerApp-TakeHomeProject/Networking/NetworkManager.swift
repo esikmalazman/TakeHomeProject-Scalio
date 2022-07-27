@@ -17,43 +17,87 @@ class NetworkManager {
     
     var session : URLSessionContract = URLSession.shared
     
-    func requestLogin(_ user : String, completions : @escaping ([User]?, Error?)->Void) {
-        guard let url = URL(string: "https://api.github.com/search/users?q=\(user)&page=1&per_page=9") else {
-            return
-        }
+    func requestLogin(_ user : String, page : Int, completion : @escaping (Result<[User], Error>)->Void) {
+#warning("take care of query that have spaces")
+        let endpoint = Endpoint.users(username: user, page: page).url
         
-        print(url)
-        session.dataTask(with: url) { data, response, error in
+        print("Endpoint : \(endpoint)")
+        
+        requestApi(from: endpoint, objectToDecode: UsersResponse.self) { result in
+            switch result {
+                
+            case .success(let users):
+                completion(.success(users.items ?? []))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func requestApi<T:Decodable>(from url : URL, objectToDecode object : T.Type, completion : @escaping (Result<T,Error>)->Void) {
+        
+        let task = session.dataTask(with: url) { data, response, error in
             
-            if let error = error {
-                completions(nil, error)
-                fatalError(" Error : \(String(describing: error))")
+            if let _ = error {
                 return
             }
             
             guard let data = data else {
-                completions(nil, error)
-                fatalError("Invalid Data")
                 return
             }
             
             do {
                 let decoder = JSONDecoder()
-                let object =  try decoder.decode(UsersResponse.self, from: data)
-                completions(object.items, nil)
-                dump(object)
+                let decodedObject = try decoder.decode(object.self, from: data)
+                completion(.success(decodedObject))
+                
             } catch {
-                completions(nil, error)
+                completion(.failure(error))
                 fatalError("Error : \(String(describing: error))")
             }
             
-        }.resume()
+        }
+        
+        task.resume()
     }
 }
+
+extension URL {
+    static func createEndpoint(_ endpoint : String) -> URL {
+        let urlString = "https://api.github.com/search/\(endpoint)"
+            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        return URL(string: urlString ?? "")!
+    }
+}
+enum Endpoint {
+    case users(username : String, page : Int = 1, usersPerPage : Int = 9)
+}
+
+enum ApiURL : String {
+    case baseURL
+}
+
+extension ApiURL {
+    var url : URL {
+        return URL(string: "https://api.github.com/search/")!
+    }
+}
+
+extension Endpoint {
+    
+    var url : URL {
+        switch self {
+        case .users(let username, let page, let resultsPerPage):
+            return .createEndpoint("users?q=\(username)&page=\(page)&per_page=\(resultsPerPage)")
+        }
+    }
+}
+
 
 #warning("""
 TODO's
 1. Make generic network request
 2. Utilise URLComponents to refactor api path
-3. Add pagination
+3. Add pagination ✅
 """)
