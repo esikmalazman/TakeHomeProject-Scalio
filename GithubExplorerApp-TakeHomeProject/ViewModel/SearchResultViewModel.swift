@@ -12,13 +12,19 @@ protocol SearchViewModelDelegate : AnyObject {
 }
 
 class SearchResultViewModel {
-
+    
     var networkManager = NetworkManager()
     
-    var delegate : SearchViewModelDelegate?
-    var listOfUser = [User]()
+    weak var delegate : SearchViewModelDelegate?
+
     var page = 1
-    
+    var listOfUser = [User]() {
+        didSet {
+            listOfUser.sort { firstUser, secondUser in
+                firstUser.login! < secondUser.login!
+            }
+        }
+    }
     
     func requestUsers(_ user : String) {
         networkManager.requestLogin(user) { users, error in
@@ -28,7 +34,7 @@ class SearchResultViewModel {
             self.delegate?.didReceiveUsers()
         }
     }
-
+    
     func nextPageUser(_ user : String) {
         page = page + 1
         requestUsers(user)
