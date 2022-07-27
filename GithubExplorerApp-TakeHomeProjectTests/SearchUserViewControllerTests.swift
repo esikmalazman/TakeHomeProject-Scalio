@@ -17,5 +17,18 @@ final class SearchUserViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    
+    func test_outlets_shouldBeConnected() {
+        XCTAssertNotNil(sut.cancelButton, "cancelButton")
+        XCTAssertNotNil(sut.loginTextField, "loginTextField")
+        XCTAssertNotNil(sut.submitButton, "submitButton")
+        XCTAssertNotNil(sut.introImageView, "introImageView")
+    }
+
 }
+
+let test_to_covered =
+"""
+1. Actions
+2. Textfield Delegate
+3. ViewModelDelegate
+"""
