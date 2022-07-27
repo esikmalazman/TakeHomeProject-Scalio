@@ -12,8 +12,6 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet private(set) weak var userImageView: UIImageView!
     @IBOutlet private(set) weak var usernameLabel: UILabel!
     @IBOutlet private(set) weak var userTypeLabel: UIButton!
-    @IBOutlet private(set) weak var repositoryNameLabel: UILabel!
-    @IBOutlet private(set) weak var repositoryLinkLabel: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -32,13 +30,12 @@ class UserTableViewCell: UITableViewCell {
         usernameLabel.text = data.login
         userTypeLabel.titleLabel?.text = data.type
         userImageView.downloadImage(fromURLString: data.avatar_url ?? "")
-#warning("add configure for repo name and link too")
     }
 }
 
 private extension UserTableViewCell {
     func setupContentView() {
-        let margins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        let margins = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
         contentView.frame = contentView.frame.inset(by: margins)
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 8

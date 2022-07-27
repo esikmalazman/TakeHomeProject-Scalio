@@ -62,7 +62,7 @@ extension SearchResultsViewController : UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension SearchResultsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 90
     }
 }
 
