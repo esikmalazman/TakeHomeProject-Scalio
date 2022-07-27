@@ -21,6 +21,7 @@
 		7F8BB1AD28903E3D007D135A /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8BB1AB28903E3D007D135A /* UserCollectionViewCell.xib */; };
 		7FAFCEEC2890B45A00A38502 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEEB2890B45A00A38502 /* SearchResultViewModel.swift */; };
 		7FAFCEEF2890BBBD00A38502 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEEE2890BBBD00A38502 /* UIImageView+Extensions.swift */; };
+		7FAFCEF12890C1CE00A38502 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF02890C1CE00A38502 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		7F8BB1AB28903E3D007D135A /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
 		7FAFCEEB2890B45A00A38502 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		7FAFCEEE2890BBBD00A38502 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		7FAFCEF02890C1CE00A38502 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				7FAFCEEE2890BBBD00A38502 /* UIImageView+Extensions.swift */,
+				7FAFCEF02890C1CE00A38502 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				7F53536B289028C20094565B /* User.swift in Sources */,
 				7F8BB1A728903AF5007D135A /* SearchResultsViewController.swift in Sources */,
+				7FAFCEF12890C1CE00A38502 /* UIViewController+Extensions.swift in Sources */,
 				7F53533728900AFF0094565B /* AppDelegate.swift in Sources */,
 				7FAFCEEF2890BBBD00A38502 /* UIImageView+Extensions.swift in Sources */,
 				7F53536E28902A160094565B /* NetworkManager.swift in Sources */,
