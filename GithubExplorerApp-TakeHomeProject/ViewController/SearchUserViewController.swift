@@ -36,10 +36,12 @@ extension SearchUserViewController {
             return
         }
         
-        let searchResultsVC = SearchResultsViewController()
+        let searchResultsVC = SearchResultsViewController(username: loginText)
         navigationController?.pushViewController(searchResultsVC, animated: true)
         
-        networkManager.requestLogin(loginText)
+        networkManager.requestLogin(loginText) { users, error in
+            
+        }
     }
 }
 
