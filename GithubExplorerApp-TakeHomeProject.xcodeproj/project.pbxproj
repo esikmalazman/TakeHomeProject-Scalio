@@ -22,6 +22,7 @@
 		7FAFCEEC2890B45A00A38502 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEEB2890B45A00A38502 /* SearchResultViewModel.swift */; };
 		7FAFCEEF2890BBBD00A38502 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEEE2890BBBD00A38502 /* UIImageView+Extensions.swift */; };
 		7FAFCEF12890C1CE00A38502 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF02890C1CE00A38502 /* UIViewController+Extensions.swift */; };
+		7FAFCEF32890C78C00A38502 /* SearchUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF22890C78C00A38502 /* SearchUserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7FAFCEEB2890B45A00A38502 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		7FAFCEEE2890BBBD00A38502 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		7FAFCEF02890C1CE00A38502 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		7FAFCEF22890C78C00A38502 /* SearchUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				7FAFCEEB2890B45A00A38502 /* SearchResultViewModel.swift */,
+				7FAFCEF22890C78C00A38502 /* SearchUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				7F53533728900AFF0094565B /* AppDelegate.swift in Sources */,
 				7FAFCEEF2890BBBD00A38502 /* UIImageView+Extensions.swift in Sources */,
 				7F53536E28902A160094565B /* NetworkManager.swift in Sources */,
+				7FAFCEF32890C78C00A38502 /* SearchUserViewModel.swift in Sources */,
 				7F535368289020020094565B /* SearchUserViewController.swift in Sources */,
 				7F8BB1AC28903E3D007D135A /* UserCollectionViewCell.swift in Sources */,
 				7F53533928900AFF0094565B /* SceneDelegate.swift in Sources */,
