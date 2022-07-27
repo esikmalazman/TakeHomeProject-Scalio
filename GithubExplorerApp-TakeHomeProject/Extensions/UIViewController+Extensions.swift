@@ -8,19 +8,17 @@
 import UIKit
 
 extension UIViewController {
-    
     func presentSimpleAlert(_ title : String = "",
                             message : String?,
-                            buttonTitle : String,
-                            completion : @escaping ()->Void) {
+                            actions : [UIAlertAction]) {
+        
         let alertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: .alert)
-        let buttonAction = UIAlertAction(title: buttonTitle,
-                                         style: .default) { action in
-            completion()
+        
+        actions.forEach { action in
+            alertController.addAction(action)
         }
-        alertController.addAction(buttonAction)
         
         DispatchQueue.main.async { [weak self] in
             self?.present(alertController, animated: true)
