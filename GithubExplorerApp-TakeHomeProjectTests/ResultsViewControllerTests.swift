@@ -143,6 +143,38 @@ final class ResultsViewControllerTests: XCTestCase {
         
         XCTAssertEqual(mockNavControler.isBeingPop, true)
     }
+    
+    //MARK: - ResultsViewModelDelegate
+    
+    func test_viewModelDelegate_shouldBeConnected() {
+        XCTAssertNotNil(sut.viewModel.delegate)
+    }
+    
+    func test_didReceiveUsers_withSuccessRequestLogin_shouldSetTotalUsersLabelTo3() {
+        setupSuccesRequestLogin()
+        let receiveUserExpectation = expectation(description: "users received")
+        
+        didReceiveUsers(sut.viewModel)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            receiveUserExpectation.fulfill()
+        }
+
+        wait(for: [receiveUserExpectation], timeout: 0.1)
+        XCTAssertEqual(sut.totalUsersLabel.text, "3 Results found")
+    }
+    
+    func test_didReceiveUsers_withFailureRequestLogin_shouldSetTotalUsersLabelTo3() {
+        setupFailureRequestLogin()
+        let receiveUserExpectation = expectation(description: "users received")
+        
+        sut.didReceiveUsers()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            receiveUserExpectation.fulfill()
+        }
+
+        wait(for: [receiveUserExpectation], timeout: 0.1)
+        XCTAssertEqual(sut.totalUsersLabel.text, "0 Results found")
+    }
 }
 
 private extension ResultsViewControllerTests {
@@ -153,6 +185,16 @@ private extension ResultsViewControllerTests {
                              actions: [.destructive("Cancel"), .default("Retry")],
                              preferredStyle: .alert,
                              presentingViewController: sut)
+    }
+}
+
+extension ResultsViewControllerTests {
+    func didReceiveUsers(_ viewModel : ResultsViewModel) {
+        viewModel.delegate?.didReceiveUsers()
+    }
+    
+    func showFailureAlert(_ viewModel  : ResultsViewModel, message :String) {
+        viewModel.delegate?.showFailureAlert(message)
     }
 }
 

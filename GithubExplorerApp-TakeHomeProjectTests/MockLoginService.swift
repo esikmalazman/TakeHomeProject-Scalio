@@ -13,7 +13,7 @@ class MockLoginService : LoginServiceContract {
     var requestLoginArguementsUser = [String]()
     var requestLoginArguementsPage = [Int]()
     var requestLoginCompletionUser = [User]()
-    
+
     var apiErrorType : APIError = APIError.invalidData
     var successMakeRequest = false
     var requestLoginCallCount = 0
