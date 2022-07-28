@@ -24,6 +24,7 @@
 		7FAFCEF62890D34200A38502 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF42890D34200A38502 /* UserTableViewCell.swift */; };
 		7FAFCEF72890D34200A38502 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */; };
 		7FB71A4228920AAC0026D3CE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB71A4128920AAC0026D3CE /* LoginService.swift */; };
+		7FB71A4428920C4B0026D3CE /* MockLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB71A4328920C4B0026D3CE /* MockLoginService.swift */; };
 		7FD00B86289111D300BA4FD2 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B85289111D300BA4FD2 /* URL+Extensions.swift */; };
 		7FD00B882891120C00BA4FD2 /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B872891120C00BA4FD2 /* NetworkUtilities.swift */; };
 		7FD00B8A2891543000BA4FD2 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B892891543000BA4FD2 /* AppTheme.swift */; };
@@ -79,6 +80,7 @@
 		7FAFCEF42890D34200A38502 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		7FB71A4128920AAC0026D3CE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		7FB71A4328920C4B0026D3CE /* MockLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginService.swift; sourceTree = "<group>"; };
 		7FD00B85289111D300BA4FD2 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		7FD00B872891120C00BA4FD2 /* NetworkUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
 		7FD00B892891543000BA4FD2 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				7FD00B8B2891722800BA4FD2 /* SearchUserViewControllerTests.swift */,
 				7FD00B8D2891739B00BA4FD2 /* TestHelpers.swift */,
 				7FD00B932891900D00BA4FD2 /* ResultsViewControllerTests.swift */,
+				7FB71A4328920C4B0026D3CE /* MockLoginService.swift */,
 			);
 			path = "GithubExplorerApp-TakeHomeProjectTests";
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD00B8C2891722800BA4FD2 /* SearchUserViewControllerTests.swift in Sources */,
+				7FB71A4428920C4B0026D3CE /* MockLoginService.swift in Sources */,
 				7FD00B8E2891739B00BA4FD2 /* TestHelpers.swift in Sources */,
 				7FD00B942891900D00BA4FD2 /* ResultsViewControllerTests.swift in Sources */,
 			);
