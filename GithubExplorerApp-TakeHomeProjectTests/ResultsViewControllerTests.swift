@@ -155,11 +155,11 @@ final class ResultsViewControllerTests: XCTestCase {
         let receiveUserExpectation = expectation(description: "users received")
         
         didReceiveUsers(sut.viewModel)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             receiveUserExpectation.fulfill()
         }
 
-        wait(for: [receiveUserExpectation], timeout: 0.1)
+        wait(for: [receiveUserExpectation], timeout: 0.01)
         XCTAssertEqual(sut.totalUsersLabel.text, "3 Results found")
     }
     
@@ -168,11 +168,11 @@ final class ResultsViewControllerTests: XCTestCase {
         let receiveUserExpectation = expectation(description: "users received")
         
         sut.didReceiveUsers()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             receiveUserExpectation.fulfill()
         }
 
-        wait(for: [receiveUserExpectation], timeout: 0.1)
+        wait(for: [receiveUserExpectation], timeout: 0.01)
         XCTAssertEqual(sut.totalUsersLabel.text, "0 Results found")
     }
     
