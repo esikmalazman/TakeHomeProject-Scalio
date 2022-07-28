@@ -26,8 +26,8 @@ class MockLoginService : LoginServiceContract {
         
         if successMakeRequest {
             let response = [
-                User(login: "John", avatar_url: "https:/dummy1.com", type: "User"),
-                User(login: "Doe", avatar_url: "https:/dummy2.com", type: "User"),
+                User(login: "Abu", avatar_url: "https:/dummy1.com", type: "User"),
+                User(login: "Brandon", avatar_url: "https:/dummy2.com", type: "User"),
                 User(login: "FakeCompany", avatar_url: "https:/dummy2.com", type: "Organization")
             ]
             

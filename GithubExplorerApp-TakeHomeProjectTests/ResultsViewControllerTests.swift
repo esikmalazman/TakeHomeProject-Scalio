@@ -14,7 +14,7 @@ final class ResultsViewControllerTests: XCTestCase {
         
         viewModel = ResultsViewModel()
         sut.viewModel = viewModel
-     
+        
         mockLoginService = MockLoginService()
         viewModel.loginService = mockLoginService
         
@@ -38,12 +38,65 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     
+    //MARK: - UITableViewDataSource
+    func test_tableDelegates_shouldBeConnected() {
+        XCTAssertNotNil(sut.resultsTableView.dataSource, "dataSource")
+        XCTAssertNotNil(sut.resultsTableView.delegate, "delegate")
+    }
+    
+    func test_numberOfRows_withSuccessRequestLogin_shouldBe3() {
+        mockLoginService.successMakeRequest = true
+        
+        viewModel.requestUsers(sut.username)
+        
+        let numberOfRows = numberOfRowsInSection(sut.resultsTableView)
+        XCTAssertEqual(numberOfRows, 3)
+    }
+    
+    func test_numberOfRows_withFailureRequestLogin_shouldBe0() {
+        mockLoginService.successMakeRequest = false
+        
+        viewModel.requestUsers(sut.username)
+        
+        let numberOfRows = numberOfRowsInSection(sut.resultsTableView)
+        XCTAssertEqual(numberOfRows, 0)
+    }
+    
+    func test_cellForRowAt_shouldSetUserTableViewCellAsTableCell() {
+        mockLoginService.successMakeRequest = true
+        
+        viewModel.requestUsers(sut.username)
+        
+        let cell = cellForRowAt(sut.resultsTableView, row: 0) as? UserTableViewCell
+        XCTAssertNotNil(cell, "Expected UserTableViewCell but was : \(String(describing: cell.self))")
+    }
+    
+    func test_cellForRowAt_withRow0_shouldSetUsernameLabelToAbu() {
+        mockLoginService.successMakeRequest = true
+        
+        viewModel.requestUsers(sut.username)
+        
+        let cell = cellForRowAt(sut.resultsTableView, row: 0) as? UserTableViewCell
+        XCTAssertEqual(cell?.usernameLabel.text, "Abu")
+    }
+    
+    func test_cellForRowAt_withRow3_shouldSetUsernameLabelToFakeCompany() {
+        mockLoginService.successMakeRequest = true
+        
+        viewModel.requestUsers(sut.username)
+        
+        let cell = cellForRowAt(sut.resultsTableView, row: 2) as? UserTableViewCell
+        XCTAssertEqual(cell?.usernameLabel.text, "FakeCompany")
+    }
 }
 
 
 let thingsToTest =
 """
 1. Outlets ✅
-2. Datasource
-3. ViewModel Delegate
+2. Datasource ✅
+3. Initializer
+4. ViewModel Delegate
 """
+
+
