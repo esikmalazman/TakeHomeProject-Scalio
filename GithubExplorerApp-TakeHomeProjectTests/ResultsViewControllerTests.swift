@@ -90,9 +90,35 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     //MARK: - Initializer
-    
-    func test_injectUsername_withSuccesRequestLogin_shouldHave0PresentedAlert() {
+    func test_injectUsername_duringLoadViewController_shouldCallRequestUsers1() {
         
+        viewModel.requestUsers(sut.username)
+        
+        XCTAssertEqual(mockLoginService.requestLoginCallCount, 1)
+    }
+    
+    func test_injectUsername_withSuccessRequestLogin_shouldHave0PresentedAlert() {
+        setupSuccesRequestLogin()
+        
+        XCTAssertEqual(alertVerifier.presentedCount, 0)
+    }
+    
+    func test_injectUsername_withFailureRequestLogin_shouldPresentErrorAlert() {
+        mockLoginService.apiErrorType = .invalidData
+        setupFailureRequestLogin()
+        
+        verifyPresentedErrorAlert("The data received from server is invalid, please try again")
+    }
+}
+
+private extension ResultsViewControllerTests {
+    func verifyPresentedErrorAlert(_ message : String) {
+        alertVerifier.verify(title: "",
+                             message: message,
+                             animated: true,
+                             actions: [.destructive("Cancel"), .default("Retry")],
+                             preferredStyle: .alert,
+                             presentingViewController: sut)
     }
 }
 
