@@ -175,16 +175,51 @@ final class ResultsViewControllerTests: XCTestCase {
         wait(for: [receiveUserExpectation], timeout: 0.1)
         XCTAssertEqual(sut.totalUsersLabel.text, "0 Results found")
     }
+    
+    func test_showFailureAlert_withDummyMessage_shouldPresentAlert() {
+        
+        showFailureAlert(sut.viewModel, message: "DUMMY")
+        
+        verifyPresentedErrorAlert("DUMMY")
+    }
+    
+    func test_showFailureAlert_withDummyMessage_andTappingRetry_shouldCallRequestUsersTo1() throws {
+        showFailureAlert(sut.viewModel, message: "DUMMY")
+        
+        try alertVerifier.executeAction(forButton: "Retry")
+     
+        XCTAssertEqual(mockLoginService.requestLoginCallCount, 1)
+    }
+    
+    func test_showFailureAlert_withDummyMessage_andTappingRetry_shouldEmptyListOfUsers() throws {
+        showFailureAlert(sut.viewModel, message: "DUMMY")
+        
+        try alertVerifier.executeAction(forButton: "Retry")
+     
+        XCTAssertEqual(viewModel.listOfUser.count, 0)
+    }
+    
+    func test_showFailureAlert_withDummyMessage_andTappingRetry_shouldResetPageTo1() throws {
+        showFailureAlert(viewModel, message: "DUMMY")
+        
+        try alertVerifier.executeAction(forButton: "Retry")
+     
+        XCTAssertEqual(viewModel.page, 1)
+    }
 }
 
 private extension ResultsViewControllerTests {
-    func verifyPresentedErrorAlert(_ message : String) {
+    func verifyPresentedErrorAlert(_ message : String,
+                                   file : StaticString = #file,
+                                   line : UInt = #line) {
         alertVerifier.verify(title: "",
                              message: message,
                              animated: true,
                              actions: [.destructive("Cancel"), .default("Retry")],
                              preferredStyle: .alert,
-                             presentingViewController: sut)
+                             presentingViewController: sut,
+                             file: file,
+                             line: line)
     }
 }
 
@@ -216,7 +251,7 @@ let thingsToTest =
 1. Outlets ✅
 2. Datasource ✅
 3. Initializer ✅
-4. ViewModel Delegate
+4. ViewModel Delegate ✅
 """
 
 
