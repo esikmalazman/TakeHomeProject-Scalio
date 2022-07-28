@@ -69,20 +69,19 @@ extension ResultsViewController : UITableViewDelegate {
 //MARK: - ResultsViewModelDelegate
 extension ResultsViewController : ResultsViewModelDelegate {
     func didReceiveUsers() {
-        print("Total Users : \(viewModel.listOfUser.count)")
-        DispatchQueue.main.async {
-            self.totalUsersLabel.text = self.viewModel.totalNumberOfUsers()
-            self.resultsTableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.totalUsersLabel.text = self?.viewModel.totalNumberOfUsers()
+            self?.resultsTableView.reloadData()
         }
     }
     
     func showFailureAlert(_ message: String) {
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { _ in
-            self.navigationController?.popViewController(animated: true)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
         }
-        let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
-            self.viewModel.resetListOfUsers()
-            self.viewModel.requestUsers(self.username)
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+            self?.viewModel.resetListOfUsers()
+            self?.viewModel.requestUsers(self?.username ?? "")
         }
         
         let alert = createSimpleAlert(message: message, actions: [cancelAction,retryAction])
@@ -109,5 +108,5 @@ private extension ResultsViewController {
 1. Show empty state (nice to have)
 2. Add pull to refresh (nice to have)
 3. Remove comments
-4. Add basic unit test
+5. Add weak self
 """)

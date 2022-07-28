@@ -52,7 +52,7 @@ extension SearchUserViewController : SearchViewModelDelegate {
             self?.loginTextField.becomeFirstResponder()
         }
         let alert = createSimpleAlert(message: "Please enter words in Login",
-                           actions: [okAction])
+                                      actions: [okAction])
         self.present(alert, animated: true)
     }
     

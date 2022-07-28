@@ -158,7 +158,7 @@ final class ResultsViewControllerTests: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             receiveUserExpectation.fulfill()
         }
-
+        
         wait(for: [receiveUserExpectation], timeout: 0.01)
         XCTAssertEqual(sut.totalUsersLabel.text, "3 Results found")
     }
@@ -171,7 +171,7 @@ final class ResultsViewControllerTests: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             receiveUserExpectation.fulfill()
         }
-
+        
         wait(for: [receiveUserExpectation], timeout: 0.01)
         XCTAssertEqual(sut.totalUsersLabel.text, "0 Results found")
     }
@@ -187,7 +187,7 @@ final class ResultsViewControllerTests: XCTestCase {
         showFailureAlert(sut.viewModel, message: "DUMMY")
         
         try alertVerifier.executeAction(forButton: "Retry")
-     
+        
         XCTAssertEqual(mockLoginService.requestLoginCallCount, 1)
     }
     
@@ -195,7 +195,7 @@ final class ResultsViewControllerTests: XCTestCase {
         showFailureAlert(sut.viewModel, message: "DUMMY")
         
         try alertVerifier.executeAction(forButton: "Retry")
-     
+        
         XCTAssertEqual(viewModel.listOfUser.count, 0)
     }
     
@@ -203,7 +203,7 @@ final class ResultsViewControllerTests: XCTestCase {
         showFailureAlert(viewModel, message: "DUMMY")
         
         try alertVerifier.executeAction(forButton: "Retry")
-     
+        
         XCTAssertEqual(viewModel.page, 1)
     }
 }

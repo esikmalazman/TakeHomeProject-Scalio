@@ -30,7 +30,7 @@ class ResultsViewModel {
     func requestUsers(_ user : String) {
         loginService.requestLogin(user, page: page) { [weak self] result in
             switch result {
-    
+                
             case .success(let users):
                 users.forEach { user in
                     self?.listOfUser.append(user)

@@ -15,14 +15,11 @@ class LoginService : LoginServiceContract {
     
     var networkManager = NetworkManager()
     
-    func requestLogin(_ user: String, page: Int, completion: @escaping (Result<[User], APIError>) -> Void) {
+    func requestLogin(_ user: String,
+                      page: Int, completion: @escaping (Result<[User], APIError>) -> Void) {
         let endpoint = Endpoint.users(username: user, page: page).url
-        
-        print("Endpoint : \(endpoint)")
-        
         networkManager.requestApi(from: endpoint, objectToDecode: UsersResponse.self) { result in
             switch result {
-                
             case .success(let users):
                 completion(.success(users.items ?? []))
             case .failure(let error):

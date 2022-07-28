@@ -128,21 +128,21 @@ final class SearchUserViewControllerTests: XCTestCase {
     func test_textFieldDelegate_shouldBeConnected() {
         XCTAssertNotNil(sut.loginTextField.delegate)
     }
-
+    
     func test_textFieldShouldReturn_withEmptyText_shouldDisplayAlert() {
         sut.loginTextField.text = ""
-
+        
         let isTextfieldReturn = sut.loginTextField.delegate?.textFieldShouldReturn?(sut.loginTextField)
-
+        
         verifyPresentedAlert(message: "Please enter words in Login")
         XCTAssertEqual(isTextfieldReturn, true, "Expected to Return but was \(String(describing: isTextfieldReturn))")
     }
     
     func test_textFieldShouldReturn_withSpaceWithoutEarlyCharactersInBeginning_shouldDisplayAlert() {
         sut.loginTextField.text = " "
-
+        
         let isTextfieldReturn = shouldReturn(sut.loginTextField)
-
+        
         verifyPresentedAlert(message: "Please enter words in Login")
         XCTAssertEqual(isTextfieldReturn, true, "Expected to Return but was \(String(describing: isTextfieldReturn))")
     }
@@ -235,7 +235,7 @@ final class SearchUserViewControllerTests: XCTestCase {
         XCTAssertTrue(pushedVC is ResultsViewController,"Expected ResultsVC but was \(String(describing: pushedVC.self))")
         XCTAssertEqual(navController.viewControllers.count, 2, "VC in Navigation Controller  Stack expected to have 2 but was :\(navController.viewControllers.count)")
     }
-
+    
     func test_beginSearchUsername_withDummyTest_shouldPassDummyTextToUsernameInResultVC() {
         let navController = UINavigationController(rootViewController: sut)
         XCTAssertNotNil(sut.navigationController, "precondition - SUT have NavigationController")

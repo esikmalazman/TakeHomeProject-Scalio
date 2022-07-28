@@ -38,7 +38,6 @@ class NetworkManager {
                 
             } catch {
                 completion(.failure(.invalidData))
-                fatalError("Error : \(String(describing: error))")
             }
         }
         task.resume()
