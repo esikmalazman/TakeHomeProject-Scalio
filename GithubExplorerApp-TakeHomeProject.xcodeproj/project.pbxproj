@@ -23,6 +23,7 @@
 		7FAFCEF32890C78C00A38502 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF22890C78C00A38502 /* SearchViewModel.swift */; };
 		7FAFCEF62890D34200A38502 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF42890D34200A38502 /* UserTableViewCell.swift */; };
 		7FAFCEF72890D34200A38502 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */; };
+		7FB71A4228920AAC0026D3CE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB71A4128920AAC0026D3CE /* LoginService.swift */; };
 		7FD00B86289111D300BA4FD2 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B85289111D300BA4FD2 /* URL+Extensions.swift */; };
 		7FD00B882891120C00BA4FD2 /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B872891120C00BA4FD2 /* NetworkUtilities.swift */; };
 		7FD00B8A2891543000BA4FD2 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B892891543000BA4FD2 /* AppTheme.swift */; };
@@ -30,6 +31,7 @@
 		7FD00B8E2891739B00BA4FD2 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B8D2891739B00BA4FD2 /* TestHelpers.swift */; };
 		7FD00B902891765700BA4FD2 /* ViewControllerPresentationSpy.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD00B8F2891765700BA4FD2 /* ViewControllerPresentationSpy.xcframework */; };
 		7FD00B922891767600BA4FD2 /* ViewControllerPresentationSpy.xcframework in ViewControllerPresentationSpy */ = {isa = PBXBuildFile; fileRef = 7FD00B8F2891765700BA4FD2 /* ViewControllerPresentationSpy.xcframework */; };
+		7FD00B942891900D00BA4FD2 /* ResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD00B932891900D00BA4FD2 /* ResultsViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +78,14 @@
 		7FAFCEF22890C78C00A38502 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		7FAFCEF42890D34200A38502 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		7FAFCEF52890D34200A38502 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		7FB71A4128920AAC0026D3CE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		7FD00B85289111D300BA4FD2 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		7FD00B872891120C00BA4FD2 /* NetworkUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
 		7FD00B892891543000BA4FD2 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		7FD00B8B2891722800BA4FD2 /* SearchUserViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewControllerTests.swift; sourceTree = "<group>"; };
 		7FD00B8D2891739B00BA4FD2 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		7FD00B8F2891765700BA4FD2 /* ViewControllerPresentationSpy.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ViewControllerPresentationSpy.xcframework; sourceTree = "<group>"; };
+		7FD00B932891900D00BA4FD2 /* ResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 				7FD00B8F2891765700BA4FD2 /* ViewControllerPresentationSpy.xcframework */,
 				7FD00B8B2891722800BA4FD2 /* SearchUserViewControllerTests.swift */,
 				7FD00B8D2891739B00BA4FD2 /* TestHelpers.swift */,
+				7FD00B932891900D00BA4FD2 /* ResultsViewControllerTests.swift */,
 			);
 			path = "GithubExplorerApp-TakeHomeProjectTests";
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 		7F53536C28902A000094565B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				7FB71A4028920A990026D3CE /* Service */,
 				7F53536D28902A160094565B /* NetworkManager.swift */,
 				7FD00B872891120C00BA4FD2 /* NetworkUtilities.swift */,
 			);
@@ -204,6 +210,14 @@
 				7FD00B85289111D300BA4FD2 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7FB71A4028920A990026D3CE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7FB71A4128920AAC0026D3CE /* LoginService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +332,7 @@
 				7FD00B86289111D300BA4FD2 /* URL+Extensions.swift in Sources */,
 				7FAFCEF62890D34200A38502 /* UserTableViewCell.swift in Sources */,
 				7FD00B882891120C00BA4FD2 /* NetworkUtilities.swift in Sources */,
+				7FB71A4228920AAC0026D3CE /* LoginService.swift in Sources */,
 				7FAFCEEF2890BBBD00A38502 /* UIImageView+Extensions.swift in Sources */,
 				7F53536E28902A160094565B /* NetworkManager.swift in Sources */,
 				7FD00B8A2891543000BA4FD2 /* AppTheme.swift in Sources */,
@@ -334,6 +349,7 @@
 			files = (
 				7FD00B8C2891722800BA4FD2 /* SearchUserViewControllerTests.swift in Sources */,
 				7FD00B8E2891739B00BA4FD2 /* TestHelpers.swift in Sources */,
+				7FD00B942891900D00BA4FD2 /* ResultsViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

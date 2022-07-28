@@ -35,7 +35,6 @@ extension SearchUserViewController {
 }
 
 //MARK: - UITextFieldDelegate
-// - Add method to prevent empty words in textfield, show popup
 extension SearchUserViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == loginTextField {
