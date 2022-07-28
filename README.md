@@ -15,6 +15,9 @@ Take Home Project - Scalio
 ## App Flow
 <img src="https://user-images.githubusercontent.com/59039044/181412580-df6aa936-68d7-4bb1-b56a-586854e73299.png" width="600">
 
+## Test Coverage
+<img src="https://user-images.githubusercontent.com/59039044/181414909-b930218f-9809-4eb2-92ab-18c6c167cb93.png" width="700">
+
 
 ## Overview
 
