@@ -104,9 +104,3 @@ private extension ResultsViewController {
         navigationController?.navigationBar.tintColor = AppTheme.primaryGreen
     }
 }
-#warning("""
-1. Show empty state (nice to have)
-2. Add pull to refresh (nice to have)
-3. Remove comments
-5. Add weak self
-""")
