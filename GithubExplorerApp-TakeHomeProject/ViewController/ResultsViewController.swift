@@ -85,7 +85,7 @@ extension ResultsViewController : ResultsViewModelDelegate {
             self.viewModel.requestUsers(self.username)
         }
         
-        let alert = createSimpleAlert( message: message, actions: [cancelAction,retryAction])
+        let alert = createSimpleAlert(message: message, actions: [cancelAction,retryAction])
         self.present(alert, animated: true)
     }
 }

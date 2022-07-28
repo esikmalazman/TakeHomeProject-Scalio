@@ -34,7 +34,7 @@ extension ApiURL {
 enum APIError : String, Error {
     case invalidURL = "The requested URL is invalid, please try again"
     case unableToComplete = "Unable to complete the request, please check your internet connection"
-    case invalidData = "The data received from server is invalid, please try again "
+    case invalidData = "The data received from server is invalid, please try again"
     case invalidResponse = "Invalid response from server"
 }
 
