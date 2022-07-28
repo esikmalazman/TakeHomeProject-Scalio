@@ -14,7 +14,7 @@ protocol ResultsViewModelDelegate : AnyObject {
 
 class ResultsViewModel {
     
-    var networkManager = NetworkManager()
+    var loginService : LoginServiceContract = LoginService()
     
     weak var delegate : ResultsViewModelDelegate?
     
@@ -28,9 +28,9 @@ class ResultsViewModel {
     }
     
     func requestUsers(_ user : String) {
-        networkManager.requestLogin(user, page: page) { [weak self] result in
+        loginService.requestLogin(user, page: page) { [weak self] result in
             switch result {
-                
+    
             case .success(let users):
                 users.forEach { user in
                     self?.listOfUser.append(user)
