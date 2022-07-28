@@ -141,7 +141,7 @@ final class ResultsViewControllerTests: XCTestCase {
         try alertVerifier.executeAction(forButton: "Cancel")
         executeRunLoop()
         
-        XCTAssertEqual(mockNavControler.isBeingPopToRootViewController, true)
+        XCTAssertEqual(mockNavControler.isBeingPop, true)
     }
 }
 

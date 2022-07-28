@@ -10,10 +10,10 @@ import UIKit
 class MockNavigationControllers : UINavigationController {
     
     /// Allow to track and test if the vc had being pop
-    var isBeingPopToRootViewController = false
+    var isBeingPop = false
     
     override func popViewController(animated: Bool) -> UIViewController? {
-        isBeingPopToRootViewController = true
+        isBeingPop = true
         return self.viewControllers.first
     }
 }
