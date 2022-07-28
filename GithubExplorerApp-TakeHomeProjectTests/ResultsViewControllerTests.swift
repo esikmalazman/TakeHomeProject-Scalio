@@ -109,6 +109,40 @@ final class ResultsViewControllerTests: XCTestCase {
         
         verifyPresentedErrorAlert("The data received from server is invalid, please try again")
     }
+    
+    func test_injectUsername_withFailureRequestLogin_andTappingRetry_shouldCallRequestUsers2() throws {
+        setupFailureRequestLogin()
+        
+        try alertVerifier.executeAction(forButton: "Retry")
+        
+        XCTAssertEqual(mockLoginService.requestLoginCallCount, 2)
+    }
+    
+    func test_injectUsername_withFailureRequestLogin_andTappingRetry_shouldEmptyListOfUsers() throws {
+        setupFailureRequestLogin()
+        
+        try alertVerifier.executeAction(forButton: "Retry")
+        
+        XCTAssertEqual(viewModel.listOfUser.isEmpty, true)
+    }
+    
+    func test_injectUsername_withFailureRequestLogin_andTappingRetry_shouldResetPageTo1() throws {
+        setupFailureRequestLogin()
+        
+        try alertVerifier.executeAction(forButton: "Retry")
+        
+        XCTAssertEqual(viewModel.page, 1)
+    }
+    
+    func test_injectUsername_withFailureRequestLogin_andTappingCancel_shouldPopVC() throws {
+        let mockNavControler = MockNavigationControllers(rootViewController: sut)
+        setupFailureRequestLogin()
+        
+        try alertVerifier.executeAction(forButton: "Cancel")
+        executeRunLoop()
+        
+        XCTAssertEqual(mockNavControler.isBeingPopToRootViewController, true)
+    }
 }
 
 private extension ResultsViewControllerTests {
@@ -139,7 +173,7 @@ let thingsToTest =
 """
 1. Outlets ✅
 2. Datasource ✅
-3. Initializer
+3. Initializer ✅
 4. ViewModel Delegate
 """
 
