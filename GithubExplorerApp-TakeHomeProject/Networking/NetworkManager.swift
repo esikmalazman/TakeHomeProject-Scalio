@@ -17,22 +17,6 @@ class NetworkManager {
     
     var session : URLSessionContract = URLSession.shared
     
-    func requestLogin(_ user : String, page : Int, completion : @escaping (Result<[User], APIError>)->Void) {
-        let endpoint = Endpoint.users(username: user, page: page).url
-        
-        print("Endpoint : \(endpoint)")
-        
-        requestApi(from: endpoint, objectToDecode: UsersResponse.self) { result in
-            switch result {
-                
-            case .success(let users):
-                completion(.success(users.items ?? []))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
     func requestApi<T:Decodable>(from url : URL, objectToDecode object : T.Type, completion : @escaping (Result<T,APIError>)->Void) {
         
         let task = session.dataTask(with: url) { data, response, error in
@@ -56,9 +40,7 @@ class NetworkManager {
                 completion(.failure(.invalidData))
                 fatalError("Error : \(String(describing: error))")
             }
-            
         }
-        
         task.resume()
     }
 }
