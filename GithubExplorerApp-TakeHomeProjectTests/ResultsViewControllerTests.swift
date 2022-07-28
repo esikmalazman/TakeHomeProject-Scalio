@@ -88,6 +88,24 @@ final class ResultsViewControllerTests: XCTestCase {
         let cell = cellForRowAt(sut.resultsTableView, row: 2) as? UserTableViewCell
         XCTAssertEqual(cell?.usernameLabel.text, "FakeCompany")
     }
+    
+    //MARK: - Initializer
+    
+    func test_injectUsername_withSuccesRequestLogin_shouldHave0PresentedAlert() {
+        
+    }
+}
+
+private extension ResultsViewControllerTests {
+    func setupSuccesRequestLogin() {
+        mockLoginService.successMakeRequest = true
+        viewModel.requestUsers(sut.username)
+    }
+    
+    func setupFailureRequestLogin() {
+        mockLoginService.successMakeRequest = false
+        viewModel.requestUsers(sut.username)
+    }
 }
 
 
