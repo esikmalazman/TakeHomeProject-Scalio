@@ -152,12 +152,11 @@
 		7F53534C28900B030094565B /* GithubExplorerApp-TakeHomeProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				7FD00B8F2891765700BA4FD2 /* ViewControllerPresentationSpy.xcframework */,
+				7FD00B932891900D00BA4FD2 /* ResultsViewControllerTests.swift */,
 				7FD00B8B2891722800BA4FD2 /* SearchUserViewControllerTests.swift */,
 				7FD00B8D2891739B00BA4FD2 /* TestHelpers.swift */,
-				7FD00B932891900D00BA4FD2 /* ResultsViewControllerTests.swift */,
-				7FB71A4328920C4B0026D3CE /* MockLoginService.swift */,
-				7FB71A45289224060026D3CE /* MockNavigationControllers.swift */,
+				7FD00B8F2891765700BA4FD2 /* ViewControllerPresentationSpy.xcframework */,
+				7FB71A47289231BC0026D3CE /* Mock */,
 			);
 			path = "GithubExplorerApp-TakeHomeProjectTests";
 			sourceTree = "<group>";
@@ -224,6 +223,15 @@
 				7FB71A4128920AAC0026D3CE /* LoginService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7FB71A47289231BC0026D3CE /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				7FB71A45289224060026D3CE /* MockNavigationControllers.swift */,
+				7FB71A4328920C4B0026D3CE /* MockLoginService.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
