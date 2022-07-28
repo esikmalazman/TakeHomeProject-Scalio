@@ -24,13 +24,17 @@ class MockLoginService : LoginServiceContract {
         requestLoginArguementsUser.append(user)
         requestLoginArguementsPage.append(page)
         
-        let response = [
-            User(login: "John", avatar_url: "https:/dummy1.com", type: "User"),
-            User(login: "Doe", avatar_url: "https:/dummy2.com", type: "User"),
-            User(login: "FakeCompany", avatar_url: "https:/dummy2.com", type: "Organization")
-        ]
-        
-        completion(.success(response))
+        if successMakeRequest {
+            let response = [
+                User(login: "John", avatar_url: "https:/dummy1.com", type: "User"),
+                User(login: "Doe", avatar_url: "https:/dummy2.com", type: "User"),
+                User(login: "FakeCompany", avatar_url: "https:/dummy2.com", type: "Organization")
+            ]
+            
+            completion(.success(response))
+        } else {
+            completion(.failure(.invalidData))
+        }
     }
 }
 

@@ -13,7 +13,7 @@ class ResultsViewController: UIViewController {
     @IBOutlet private(set) weak var resultsTableView: UITableView!
     
     let username : String
-    let viewModel = ResultsViewModel()
+    var viewModel = ResultsViewModel()
     
     init(username : String) {
         self.username = username

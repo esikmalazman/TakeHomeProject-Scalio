@@ -31,3 +31,11 @@ func executeRunLoop() {
 func shouldReturn(_ textfield : UITextField) -> Bool? {
     return textfield.delegate?.textFieldShouldReturn?(textfield)
 }
+
+
+//MARK: - UITableViewDataSource
+/// Helper method toe execute number of rows in section from tableview datasource
+func numberOfRowsInSection(_ tableview : UITableView, section : Int = 0) -> Int? {
+    return tableview.dataSource?.tableView(tableview
+                                           , numberOfRowsInSection: section)
+}
